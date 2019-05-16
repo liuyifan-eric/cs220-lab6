@@ -13,10 +13,6 @@ language: c
 
 compiler: gcc
 
-stages:
-  - build
-  - test
-
 script:
   - make -C hello clean all
   - hello/hello
