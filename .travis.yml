@@ -1,0 +1,26 @@
+dist: xenial
+addons:
+  apt:
+    packages:
+      - libyaml-dev
+
+branches:
+  only:
+  - master
+
+language: c
+
+compiler: gcc
+
+stages:
+  - build
+  - test
+
+jobs:
+  include:
+    - stage: build
+      name: "Hello:build"
+      script: make -C hello clean all
+    - stage: test
+      name: "Hello:test"
+      script: hello/hello
