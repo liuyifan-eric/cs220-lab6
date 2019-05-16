@@ -1,4 +1,5 @@
 dist: xenial
+
 addons:
   apt:
     packages:
@@ -16,11 +17,6 @@ stages:
   - build
   - test
 
-jobs:
-  include:
-    - stage: build
-      name: "Hello:build"
-      script: make -C hello clean all
-    - stage: test
-      name: "Hello:test"
-      script: hello/hello
+script:
+  - make -C hello clean all
+  - hello/hello
